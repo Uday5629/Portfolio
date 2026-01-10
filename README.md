@@ -56,29 +56,6 @@ Access at: `http://localhost`
 npm run build
 ```
 
-## Update Resume Content
-
-Edit `src/data/resumeData.js` to update resume information.
-
-## Deploy on AWS EC2
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment instructions.
-
-### Quick Docker Deploy on EC2
-
-```bash
-# SSH into EC2
-ssh -i your-key.pem ec2-user@<EC2-IP>
-
-# Install Docker
-sudo dnf install docker -y
-sudo systemctl start docker && sudo systemctl enable docker
-sudo usermod -aG docker ec2-user
-
-# Deploy
-docker-compose up -d --build
-```
-
 ## Features
 
 - Responsive design with mobile hamburger menu
