@@ -2,7 +2,7 @@ import styles from './Education.module.css';
 
 function EducationCard({ education }) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} reveal`}>
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h3 className={styles.institution}>{education.institution}</h3>
@@ -39,7 +39,8 @@ function Education({ education, certifications }) {
   return (
     <section id="education" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Education</h2>
+        <p className="eyebrow reveal">My background</p>
+        <h2 className={`${styles.sectionTitle} reveal`}>Education</h2>
         <div className={styles.educationList}>
           {education.map(edu => (
             <EducationCard key={edu.id} education={edu} />
@@ -48,10 +49,14 @@ function Education({ education, certifications }) {
 
         {certifications?.length > 0 && (
           <div className={styles.certifications}>
-            <h3 className={styles.certTitle}>Certifications</h3>
+            <h3 className={`${styles.certTitle} reveal`}>Certifications</h3>
             <div className={styles.certList}>
-              {certifications.map(cert => (
-                <div key={cert.id} className={styles.certCard}>
+              {certifications.map((cert, i) => (
+                <div
+                  key={cert.id}
+                  className={`${styles.certCard} reveal`}
+                  style={{ transitionDelay: `${i * 80}ms` }}
+                >
                   <span className={styles.certName}>{cert.title}</span>
                   <span className={styles.certIssuer}>{cert.issuer}</span>
                 </div>

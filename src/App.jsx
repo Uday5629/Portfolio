@@ -1,4 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import { Layout } from './components/layout';
 import {
   Hero,
@@ -12,12 +13,22 @@ import resumeData from './data/resumeData';
 import './styles/global.css';
 
 function App() {
-  const { personal, experience, projects, skills, education, certifications } = resumeData;
+  const {
+    personal,
+    stats,
+    experience,
+    projects,
+    skills,
+    education,
+    certifications
+  } = resumeData;
+
+  useScrollReveal();
 
   return (
     <ThemeProvider>
-      <Layout name={personal.name}>
-        <Hero personal={personal} />
+      <Layout name={personal.name} personal={personal}>
+        <Hero personal={personal} stats={stats} />
         <Experience experiences={experience} />
         <Projects projects={projects} />
         <Skills skills={skills} />

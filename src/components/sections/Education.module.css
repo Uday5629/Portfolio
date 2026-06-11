@@ -24,7 +24,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: var(--accent-color);
+  background: var(--accent-gradient);
   border-radius: 2px;
 }
 
@@ -35,10 +35,11 @@
 }
 
 .card {
-  background: var(--bg-primary);
+  background: var(--bg-elevated);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .header {
@@ -80,9 +81,14 @@
 }
 
 .cgpa {
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 1rem;
+  align-self: flex-end;
+  background: var(--accent-soft);
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
 }
 
 .duration {
@@ -137,13 +143,21 @@
 }
 
 .certCard {
-  background: var(--bg-primary);
+  background: var(--bg-elevated);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 1rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s ease;
+}
+
+.certCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
 }
 
 .certName {

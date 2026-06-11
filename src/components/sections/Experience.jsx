@@ -1,8 +1,11 @@
 import styles from './Experience.module.css';
 
-function ExperienceCard({ experience }) {
+function ExperienceCard({ experience, index = 0 }) {
   return (
-    <div className={styles.card}>
+    <div
+      className={`${styles.card} reveal`}
+      style={{ transitionDelay: `${index * 90}ms` }}
+    >
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h3 className={styles.title}>{experience.title}</h3>
@@ -28,10 +31,11 @@ function Experience({ experiences }) {
   return (
     <section id="experience" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Experience</h2>
+        <p className="eyebrow reveal">Where I've worked</p>
+        <h2 className={`${styles.sectionTitle} reveal`}>Experience</h2>
         <div className={styles.timeline}>
-          {experiences.map(exp => (
-            <ExperienceCard key={exp.id} experience={exp} />
+          {experiences.map((exp, i) => (
+            <ExperienceCard key={exp.id} experience={exp} index={i} />
           ))}
         </div>
       </div>

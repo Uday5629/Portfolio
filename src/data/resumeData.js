@@ -2,13 +2,22 @@ const resumeData = {
   personal: {
     name: "Uday",
     title: "Software Engineer",
-    location: "Sarjapur Road, Bangalore - 560035",
+    tagline: "I build scalable Java backends and distributed systems — Spring Boot, microservices & cloud.",
+    location: "Bangalore, India",
     phone: "+91 9918514781",
     email: "guptauday594@gmail.com",
     linkedin: "https://linkedin.com/in/uday-profile",
     github: "https://github.com/uday5629",
-    summary: "Full Stack Software Engineer with expertise in Java, Spring Boot, React, and Microservices. Passionate about building scalable applications and delivering high-quality software solutions."
+    available: true,
+    summary: "Software Engineer specializing in Java Backend Development and Distributed Systems. Expert in Spring Boot Microservices, API Design, and Cloud Infrastructure. Proven track record of enhancing system performance by 25% and managing high-throughput architectures handling 5,000+ daily transactions."
   },
+
+  stats: [
+    { id: 1, to: 20, suffix: "+", label: "REST APIs Built" },
+    { id: 2, to: 5, suffix: "K+", label: "Daily Transactions" },
+    { id: 3, to: 25, suffix: "%", label: "Faster API Latency" },
+    { id: 4, to: 9.45, decimals: 2, label: "Academic GPA" }
+  ],
 
   education: [
     {
@@ -19,12 +28,12 @@ const resumeData = {
       cgpa: "9.45",
       duration: "Sep 2020 – Jun 2024",
       courses: [
+        "Data Structures & Algorithms",
         "Operating Systems",
-        "Data Structures and Algorithms",
         "Object Oriented Programming",
-        "Networking",
         "Database Management Systems",
-        "SDLC"
+        "Computer Networks",
+        "Distributed Systems"
       ]
     }
   ],
@@ -38,34 +47,22 @@ const resumeData = {
       duration: "July 2024 – Present",
       type: "full-time",
       highlights: [
-        "Contributed to the development of a MicroFrontEnd Platform implementing backend services, API architecture, data processing, and seamless integrations to improve system efficiency",
-        "Collaborated on 20+ RESTful APIs/MySQL integrations, logging, and error-handling, and assisted with GitRepos (GitHub) to deliver on key projects",
-        "Improved backend reliability by reducing API response errors by 15% and streamlining database queries for faster execution"
+        "Spearheaded the development of backend services for a Warehouse Execution System using Java 17 and Spring Boot, supporting a high-concurrency environment handling 5,000+ daily transactions and real-time task orchestration across a distributed microservices architecture",
+        "Architected and deployed 20+ production-grade REST APIs for inventory, order, and task management modules, enabling seamless data flow across microservices and robotic system integrations",
+        "Optimized complex database schemas and SQL queries, improving API response latency by 25% and ensuring efficient processing of high-volume warehouse and AMR task operations",
+        "Improved system reliability by reducing API failure rates by 15% through robust exception handling, centralized logging, and Agile collaboration with React micro-frontend and robotics integration teams"
       ]
     },
     {
       id: 2,
-      title: "Associate Intern",
+      title: "Associate Software Intern",
       company: "Unisys India",
       location: "Bangalore, K.A.",
       duration: "Feb 2024 – July 2024",
       type: "internship",
       highlights: [
-        "Developed a comprehensive MicroFrontEnd Platform using React/Angular, Redux, and TypeScript to improve interface for 10,000+ active users",
-        "Optimized responsiveness with SCSS, Material UI reducing overall bounce rate by 15%",
-        "Collaborated effectively on 20+ RESTful APIs integrations"
-      ]
-    },
-    {
-      id: 3,
-      title: "Data Analyst Intern & Team Lead",
-      company: "Technocolabs",
-      location: "Remote",
-      duration: "Jan 2023 – Mar 2023",
-      type: "internship",
-      highlights: [
-        "Led a team of 5, reducing project duration by 20%, and analyzed 10,000+ data entries using statistical methods to improve accuracy by 25%",
-        "Built machine learning models for delinquency prediction (85% accuracy), disease prediction (90% accuracy), and sales forecasting (20% improvement)"
+        "Developed a comprehensive Micro-FrontEnd for a Java backend platform using React, Redux, and TypeScript, improving the interface for 10,000+ active users",
+        "Optimized responsiveness using SCSS and Material UI, reducing overall bounce rate by 15% and collaborating on the integration of 20+ RESTful APIs"
       ]
     }
   ],
@@ -73,44 +70,30 @@ const resumeData = {
   projects: [
     {
       id: 1,
-      title: "Warehouse Management System",
-      subtitle: "Full Stack",
-      technologies: ["Java", "Spring Boot", "JDBC", "MySQL", "Git", "Docker"],
+      title: "UrbanFlow",
+      subtitle: "Microservices-Based Parking Management System",
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Docker",
+        "Eureka",
+        "Spring Cloud Gateway",
+        "Spring Security",
+        "JWT"
+      ],
       date: "",
-      github: "",
+      github: "https://github.com/Uday5629/ValetGo",
       highlights: [
-        "Contributed to the development of a Warehouse Management System using Java and Spring Boot, handling 5,000+ daily transactions and optimizing data processing efficiency by 30%",
-        "Designed and implemented 10+ RESTful APIs for inventory, order tracking, and reporting, and optimized MySQL database queries to reduce response time by 25%"
-      ]
-    },
-    {
-      id: 2,
-      title: "Multilevel Parking Solution",
-      subtitle: "",
-      technologies: ["Java", "Spring Boot", "Maven", "GitHub", "JDBC", "Docker"],
-      date: "Jan 2025",
-      github: "https://github.com/uday5629",
-      highlights: [
-        "Built a scalable parking management system supporting 10+ levels and 500+ vehicles, with automated ticketing, slot allocation, digital payments, backend processing, and real-time monitoring",
-        "Improved operational efficiency by reducing manual effort by 80%, optimizing parking space utilization by 30%, and cutting user wait time by 40% through real-time tracking and advance booking"
-      ]
-    },
-    {
-      id: 3,
-      title: "iNotebook",
-      subtitle: "Web Development",
-      technologies: ["React JS", "MongoDB", "Node.js", "SCSS", "HTML/CSS"],
-      date: "Jan 2024",
-      github: "https://github.com/uday5629",
-      highlights: [
-        "Built a full-stack note-taking web application using React.js, Node.js and MongoDB, implementing JWT authentication and secure RESTful APIs",
-        "Developed reusable React components with Context API for state management, enabling smooth user experience and efficient note CRUD operations"
+        "Developed a distributed system using 8 Spring Boot microservices for real-time parking operations including spot allocation, with REST APIs designed for a scalable architecture handling high-concurrency scenarios",
+        "Orchestrated containerized microservices using Docker with service discovery via Eureka and routing through Spring Cloud Gateway, reducing latency through optimized inter-service communication and caching",
+        "Implemented JWT-based authentication and role-based authorization using Spring Security at the API Gateway layer, ensuring secure, stateless communication with centralized request validation across services"
       ]
     }
   ],
 
   skills: {
-    languages: ["Java", "SQL", "JavaScript", "HTML/CSS", "C++"],
+    languages: ["Java", "SQL", "HTML/CSS", "C++"],
     frameworks: [
       "Spring Boot",
       "Spring MVC",
@@ -119,32 +102,31 @@ const resumeData = {
       "Hibernate/JPA",
       "JDBC",
       "React",
-      "Material-UI",
-      "Bootstrap",
-      "REST API",
-      "Microservices"
+      "REST APIs",
+      "Microservices Architecture"
+    ],
+    databases: [
+      "MySQL",
+      "PostgreSQL",
+      "DBMS",
+      "Operating Systems",
+      "SDLC"
     ],
     tools: [
       "Git",
       "Docker",
-      "VS Code",
+      "AWS",
       "IntelliJ IDEA",
+      "VS Code",
       "RabbitMQ",
       "SonarQube",
       "Postman",
       "Swagger"
     ],
-    concepts: [
-      "Data Analytics",
-      "IoT",
-      "DBMS",
-      "Operating Systems"
-    ],
     soft: [
       "Team Leadership",
       "Problem Solving",
-      "Self-learning",
-      "Presentation",
+      "Self-Learning",
       "Decision Making"
     ]
   },
@@ -152,18 +134,23 @@ const resumeData = {
   certifications: [
     {
       id: 1,
-      title: "Database Management System",
-      issuer: "NPTEL"
+      title: "AWS Certified Developer – Associate (DVA-C02)",
+      issuer: "Amazon Web Services"
     },
     {
       id: 2,
-      title: "Data Analytics with Python - Elite Level",
-      issuer: "NPTEL"
+      title: "Azure Fundamentals (AZ-900)",
+      issuer: "Microsoft"
     },
     {
       id: 3,
-      title: "Azure AZ-900 Cloud Fundamentals",
-      issuer: "Microsoft Azure"
+      title: "Claude Certified Architect – Foundations (CCA-F)",
+      issuer: "Anthropic"
+    },
+    {
+      id: 4,
+      title: "Database Management Systems",
+      issuer: "NPTEL"
     }
   ]
 };

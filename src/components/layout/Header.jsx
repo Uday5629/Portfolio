@@ -1,40 +1,48 @@
 import { useState } from 'react';
 import { useTheme } from '../../context/ThemeContext';
+import { useScrollProgress } from '../../hooks/useScrollProgress';
 import styles from './Header.module.css';
+
+const navItems = [
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Experience', href: '#experience', id: 'experience' },
+  { label: 'Projects', href: '#projects', id: 'projects' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
+  { label: 'Education', href: '#education', id: 'education' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
+];
+
+const sectionIds = navItems.map((item) => item.id);
 
 function Header({ name }) {
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { progress, active, scrolled } = useScrollProgress(sectionIds);
 
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Education', href: '#education' },
-    { label: 'Contact', href: '#contact' }
-  ];
-
-  const handleNavClick = () => {
-    setMobileMenuOpen(false);
-  };
+  const handleNavClick = () => setMobileMenuOpen(false);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <a href="#" className={styles.logo}>{name}</a>
+        <a href="#about" className={styles.logo}>
+          <span className={styles.logoMark}>{name[0]}</span>
+          {name}
+        </a>
 
         <nav className={`${styles.nav} ${mobileMenuOpen ? styles.navOpen : ''}`}>
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className={styles.navLink}
+              className={`${styles.navLink} ${active === item.id ? styles.navLinkActive : ''}`}
               onClick={handleNavClick}
             >
               {item.label}
             </a>
           ))}
+          <a href="#contact" className={styles.navCta} onClick={handleNavClick}>
+            Let's talk
+          </a>
         </nav>
 
         <div className={styles.headerActions}>
@@ -83,6 +91,12 @@ function Header({ name }) {
           </button>
         </div>
       </div>
+
+      <span
+        className={styles.progress}
+        style={{ transform: `scaleX(${progress})` }}
+        aria-hidden="true"
+      />
     </header>
   );
 }

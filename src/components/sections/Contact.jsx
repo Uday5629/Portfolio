@@ -56,17 +56,19 @@ function Contact({ personal }) {
   return (
     <section id="contact" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Get In Touch</h2>
-        <p className={styles.intro}>
+        <p className="eyebrow reveal">Let's connect</p>
+        <h2 className={`${styles.sectionTitle} reveal`}>Get In Touch</h2>
+        <p className={`${styles.intro} reveal`}>
           I'm always open to discussing new opportunities, collaborations, or just having a chat about technology.
         </p>
 
         <div className={styles.methods}>
-          {contactMethods.map(method => (
+          {contactMethods.map((method, i) => (
             <a
               key={method.type}
               href={method.href}
-              className={styles.method}
+              className={`${styles.method} reveal`}
+              style={{ transitionDelay: `${i * 80}ms` }}
               target={method.external ? '_blank' : undefined}
               rel={method.external ? 'noopener noreferrer' : undefined}
             >

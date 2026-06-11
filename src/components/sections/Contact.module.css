@@ -34,11 +34,12 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background: var(--bg-primary);
+  background: var(--bg-elevated);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease);
 }
 
 .method:hover {
@@ -53,10 +54,16 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--bg-secondary);
-  border-radius: 10px;
+  background: var(--accent-soft);
+  border-radius: 12px;
   color: var(--accent-color);
   flex-shrink: 0;
+  transition: all 0.2s var(--ease);
+}
+
+.method:hover .icon {
+  background: var(--accent-gradient);
+  color: #fff;
 }
 
 .methodInfo {

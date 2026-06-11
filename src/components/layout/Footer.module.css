@@ -1,21 +1,80 @@
 .footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
-  padding: 2rem;
-  margin-top: 4rem;
+  padding: 2.5rem 2rem 1.5rem;
+  margin-top: 2rem;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.name:hover {
+  color: var(--accent-color);
+}
+
+.role {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all 0.2s var(--ease);
+}
+
+.socialLink:hover {
+  color: #fff;
+  background: var(--accent-gradient);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.bottom {
+  max-width: var(--max-width);
+  margin: 1.25rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .copyright {
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
 }
 
 .built {
@@ -24,9 +83,13 @@
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container,
+  .bottom {
     flex-direction: column;
-    gap: 0.5rem;
     text-align: center;
+  }
+
+  .brand {
+    align-items: center;
   }
 }

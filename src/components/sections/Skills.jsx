@@ -1,8 +1,11 @@
 import styles from './Skills.module.css';
 
-function SkillCategory({ title, skills }) {
+function SkillCategory({ title, skills, index = 0 }) {
   return (
-    <div className={styles.category}>
+    <div
+      className={`${styles.category} reveal`}
+      style={{ transitionDelay: `${index * 80}ms` }}
+    >
       <h3 className={styles.categoryTitle}>{title}</h3>
       <div className={styles.skills}>
         {skills.map((skill, index) => (
@@ -18,24 +21,26 @@ function SkillCategory({ title, skills }) {
 function Skills({ skills }) {
   const categories = [
     { key: 'languages', title: 'Languages' },
-    { key: 'frameworks', title: 'Frameworks & Libraries' },
+    { key: 'frameworks', title: 'Frameworks & Technologies' },
+    { key: 'databases', title: 'Databases & Systems' },
     { key: 'tools', title: 'Developer Tools' },
-    { key: 'concepts', title: 'Concepts' },
-    { key: 'soft', title: 'Soft Skills' }
+    { key: 'soft', title: 'Professional Skills' }
   ];
 
   return (
     <section id="skills" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Skills</h2>
+        <p className="eyebrow reveal">What I work with</p>
+        <h2 className={`${styles.sectionTitle} reveal`}>Skills</h2>
         <div className={styles.grid}>
           {categories
             .filter(cat => skills[cat.key]?.length > 0)
-            .map(cat => (
+            .map((cat, i) => (
               <SkillCategory
                 key={cat.key}
                 title={cat.title}
                 skills={skills[cat.key]}
+                index={i}
               />
             ))}
         </div>

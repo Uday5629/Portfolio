@@ -24,7 +24,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: var(--accent-color);
+  background: var(--accent-gradient);
   border-radius: 2px;
 }
 
@@ -35,16 +35,36 @@
 }
 
 .card {
-  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-elevated);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.2s ease;
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    border-color 0.25s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
 }
 
 .card:hover {
-  border-color: var(--accent-color);
-  box-shadow: 0 4px 20px var(--shadow-color);
+  border-color: transparent;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .header {
@@ -101,12 +121,13 @@
 }
 
 .tech {
-  background: var(--bg-secondary);
+  background: var(--accent-soft);
   color: var(--accent-color);
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 14%, transparent);
 }
 
 .highlights {

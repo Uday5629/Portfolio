@@ -1,8 +1,11 @@
 import styles from './Projects.module.css';
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index = 0 }) {
   return (
-    <div className={styles.card}>
+    <div
+      className={`${styles.card} reveal`}
+      style={{ transitionDelay: `${index * 90}ms` }}
+    >
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h3 className={styles.title}>{project.title}</h3>
@@ -51,10 +54,11 @@ function Projects({ projects }) {
   return (
     <section id="projects" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Projects</h2>
+        <p className="eyebrow reveal">Things I've built</p>
+        <h2 className={`${styles.sectionTitle} reveal`}>Projects</h2>
         <div className={styles.grid}>
-          {projects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
       </div>
